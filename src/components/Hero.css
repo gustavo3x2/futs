@@ -1,0 +1,366 @@
+.hero-section {
+  padding: 120px 2rem 60px 2rem;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Orb de luz de fundo premium */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 255, 135, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content .badge {
+  background: rgba(0, 255, 135, 0.1);
+  color: var(--color-neon-green);
+  border: 1px solid rgba(0, 255, 135, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title .neon-text {
+  color: var(--color-neon-green);
+  text-shadow: 0 0 20px rgba(0, 255, 135, 0.25);
+  background: linear-gradient(135deg, var(--color-neon-green) 0%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  font-weight: 400;
+}
+
+.hero-actions-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+  display: inline-block;
+}
+
+.primary-btn {
+  background: var(--color-neon-green);
+  color: var(--bg-main);
+  box-shadow: 0 8px 24px rgba(0, 255, 135, 0.25);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 255, 135, 0.4);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-secondary);
+  transform: translateY(-3px);
+}
+
+/* Elemento visual do craque */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.craque-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-lg);
+  padding: 12px;
+  width: 100%;
+  max-width: 380px;
+  transition: var(--transition-smooth);
+}
+
+.craque-card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  border-color: rgba(0, 255, 135, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 255, 135, 0.1);
+}
+
+.craque-img {
+  width: 100%;
+  border-radius: calc(var(--radius-lg) - 6px);
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  background: var(--bg-input);
+}
+
+.craque-overlay {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  background: rgba(18, 24, 36, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+
+.craque-rating, .craque-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.rating-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-neon-green);
+}
+
+.rating-value.negative {
+  color: var(--color-danger);
+}
+
+.craque-divider {
+  width: 1px;
+  height: 25px;
+  background: var(--border-light);
+}
+
+/* Esfera luminosa pulsante atrás */
+.glowing-orb {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-neon-green);
+  filter: blur(25px);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: pulseOrb 4s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes pulseOrb {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.5); opacity: 0.7; }
+}
+
+/* --- Seção de Reações da Torcida --- */
+.hero-reactions {
+  margin-top: 3rem; /* espaço após o overlay de notas */
+  padding: 1rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.reactions-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.reactions-buttons {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.reaction-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-family: var(--font-primary);
+}
+
+.reaction-btn .emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.reaction-btn .reaction-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+.reaction-btn .reaction-count {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Botão "É Craque!" */
+.vote-craque:hover:not(:disabled) {
+  background: rgba(0, 255, 135, 0.1);
+  border-color: rgba(0, 255, 135, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 255, 135, 0.15);
+}
+
+.vote-craque:hover:not(:disabled) .emoji {
+  transform: scale(1.25) rotate(-10deg);
+}
+
+.vote-craque:hover:not(:disabled) .reaction-count {
+  color: var(--color-neon-green);
+}
+
+/* Botão "É Bagre!" */
+.vote-bagre:hover:not(:disabled) {
+  background: rgba(255, 68, 68, 0.1);
+  border-color: rgba(255, 68, 68, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 68, 68, 0.15);
+}
+
+.vote-bagre:hover:not(:disabled) .emoji {
+  transform: scale(1.25) rotate(10deg);
+}
+
+.vote-bagre:hover:not(:disabled) .reaction-count {
+  color: var(--color-danger);
+}
+
+/* Estado: já votou */
+.reaction-btn.voted {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reaction-btn.voted:disabled {
+  pointer-events: none;
+}
+
+/* Mensagem de agradecimento */
+.voted-thanks {
+  font-size: 0.78rem;
+  color: var(--color-neon-green);
+  font-weight: 600;
+  animation: fadeInUp 0.4s ease forwards;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+  
+  .hero-content {
+    align-items: center;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-actions-row {
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    margin-bottom: 2rem;
+  }
+  
+  .craque-card {
+    max-width: 320px;
+  }
+
+  .reactions-buttons {
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,111 @@
+.login-modal-overlay {
+  padding: 1rem;
+}
+
+.login-modal-content {
+  max-width: 420px;
+  width: 100%;
+}
+
+.login-header {
+  margin-bottom: 2rem;
+}
+
+.login-logo-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.login-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.login-header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.login-error-alert {
+  background: rgba(255, 59, 59, 0.1);
+  border: 1px solid rgba(255, 59, 59, 0.25);
+  color: var(--color-danger);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input com Ícone Interno */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: var(--transition-fast);
+}
+
+.input-with-icon .form-control {
+  width: 100%;
+  padding-left: 2.75rem; /* Abre espaço para o ícone */
+}
+
+.input-with-icon .form-control:focus + .input-icon {
+  color: var(--color-neon-green);
+}
+
+.login-tip {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.4;
+}
+
+.login-tip code {
+  color: var(--color-lime);
+  background: rgba(204, 255, 0, 0.08);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.tip-label {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.submit-login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
