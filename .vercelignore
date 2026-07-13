@@ -1,0 +1,12 @@
+# Ignorar arquivos de desenvolvimento e agentes
+.agent/
+*.py
+*.log
+*.md
+!README.md
+
+# Ignorar pastas de build local (Vercel builda no servidor)
+# dist/ -- NÃO ignorar, mas Vercel gera o próprio
+
+# Ignorar node_modules (Vercel instala automaticamente)
+node_modules/
